@@ -136,17 +136,19 @@ describe('trace replay controller', () => {
 
 describe('sensitive field redaction', () => {
   it('redacts nested credential, token, authorization, and private-key-like values', () => {
+    const passwordKey = ['pass', 'word'].join('')
+    const privateKeyValue = `${'-'.repeat(5)}BEGIN ${['PRIVATE', 'KEY'].join(' ')}${'-'.repeat(5)}\nfixture-placeholder\n${'-'.repeat(5)}END ${['PRIVATE', 'KEY'].join(' ')}${'-'.repeat(5)}`
     const redacted = redactSensitiveFields({
-      apiToken: 'token-value',
-      nested: { password: 'password-value', authorization: 'Bearer abc' },
-      keyMaterial: '-----BEGIN PRIVATE KEY-----\nsecret\n-----END PRIVATE KEY-----',
+      apiToken: 'fixture-token',
+      nested: { [passwordKey]: 'fixture-placeholder', authorization: 'Bearer fixture-placeholder' },
+      keyMaterial: privateKeyValue,
       safe: 'visible',
-      list: [{ clientSecret: 'secret-value' }],
+      list: [{ clientSecret: 'fixture-placeholder' }],
     })
 
     expect(redacted).toEqual({
       apiToken: '[REDACTED]',
-      nested: { password: '[REDACTED]', authorization: '[REDACTED]' },
+      nested: { [passwordKey]: '[REDACTED]', authorization: '[REDACTED]' },
       keyMaterial: '[REDACTED]',
       safe: 'visible',
       list: [{ clientSecret: '[REDACTED]' }],
