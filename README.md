@@ -39,9 +39,19 @@ npm run preview
 
 The production preview listens on `http://localhost:4173`.
 
+## Free live demo
+
+This repository includes a GitHub Pages workflow. After pushing `main`, enable **Settings → Pages → Source → GitHub Actions** if GitHub asks for a Pages source. The free static demo URL is:
+
+```text
+https://rajesh-baeyal.github.io/omniprobe/
+```
+
+GitHub Pages runs the same deterministic tests and production build in Ubuntu Actions before deploying `dist/`.
+
 ## Docker
 
-The production image uses a multi-stage `node:20-alpine` build. From the repository root:
+The production image uses a multi-stage `node:20.18.0-alpine` build. From the repository root:
 
 ```bash
 docker build -t omniprobe .
@@ -59,6 +69,10 @@ npm test
 ```
 
 The test suite covers MODBUS CRC-16, all four register endian modes, RS-485 wire-time and saturation math, and inclusive register overlap detection.
+
+## Demo video
+
+The repository includes a lightweight product-tour video at `demo/omniprobe-demo.mp4` and its shot list at `demo/README.md`. It is generated locally from deterministic title cards so it can be rebuilt without credentials or paid services.
 
 ## Diagnostic modules
 
