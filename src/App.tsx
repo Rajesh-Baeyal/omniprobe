@@ -1,4 +1,4 @@
-import { useMemo, useState, type ComponentType } from 'react'
+import { useState, type ComponentType } from 'react'
 import {
   Activity,
   AlertTriangle,
@@ -7,7 +7,6 @@ import {
   BookOpen,
   Box,
   Cable,
-  CheckCircle2,
   CirclePause,
   CirclePlay,
   Cpu,
@@ -22,7 +21,6 @@ import {
   Settings2,
   ShieldAlert,
   SlidersHorizontal,
-  TerminalSquare,
   Waves,
   X,
   Zap,
@@ -114,7 +112,7 @@ function App() {
     if (view === 'traces') return <TraceReplayPanel frameCount={workspace.frameLog.length} sequence={workspace.sequence} />
     if (view === 'terminology') return <TerminologyPanel />
     if (view === 'safety') return <SafetyPanel />
-    return <CommandCenter activePreset={activePreset} workspace={workspace} latest={latest} saturation={saturation} onNavigate={navigate} />
+    return <CommandCenter activePreset={activePreset} workspace={workspace} saturation={saturation} onNavigate={navigate} />
   }
 
   return (
@@ -203,7 +201,7 @@ function App() {
   )
 }
 
-function CommandCenter({ activePreset, workspace, latest, saturation, onNavigate }: { activePreset: typeof industrialPresets[number]; workspace: ReturnType<typeof useWorkspaceStore>; latest?: ReturnType<typeof useWorkspaceStore>['telemetry'][number]; saturation: number; onNavigate: (view: ViewId) => void }) {
+function CommandCenter({ activePreset, workspace, saturation, onNavigate }: { activePreset: typeof industrialPresets[number]; workspace: ReturnType<typeof useWorkspaceStore>; saturation: number; onNavigate: (view: ViewId) => void }) {
   return <div className="command-center">
     <section className="command-hero">
       <div className="command-hero-copy"><div className="section-kicker"><span className="kicker-rule" />Control surface / 01</div><h2>See the signal.<br /><em>Make the next move.</em></h2><p>Start with evidence, not assumptions. Inspect a frame, reproduce a fault, or learn the terminology behind the measurement.</p><div className="command-actions"><button type="button" className="primary-action" onClick={() => onNavigate('frame')}>Inspect a frame <ArrowRight size={16} /></button><button type="button" className="secondary-action" onClick={() => onNavigate('learning')}><GraduationCap size={16} />Start learning</button></div></div>
