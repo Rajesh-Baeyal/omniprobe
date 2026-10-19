@@ -5,17 +5,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: '#071018',
-        panel: '#0c1822',
-        line: '#1e3543',
-        cyan: '#61e7ff',
-        lime: '#b8f36b',
-        amber: '#ffcc66',
-        danger: '#ff6b73',
+        ink: '#081014',
+        panel: '#101c22',
+        line: '#263942',
+        cyan: '#79d5df',
+        lime: '#b8de79',
+        amber: '#e9be6c',
+        danger: '#f0787c',
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        mono: ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        sans: ['"Fira Sans"', '"IBM Plex Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['"Fira Code"', '"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
     },
   },
