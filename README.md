@@ -72,7 +72,12 @@ The test suite covers MODBUS CRC-16, all four register endian modes, RS-485 wire
 
 ## Demo video
 
-The repository includes a lightweight product-tour video at `demo/omniprobe-demo.mp4` and its shot list at `demo/README.md`. It is generated locally from deterministic title cards so it can be rebuilt without credentials or paid services.
+The repository includes a 34-second product-tour video showing the redesigned workspace rail, Command Center, Frame Studio, Virtual Bus, Logic Scope, learning/calculator/recipe surfaces, and safety boundaries:
+
+- [Watch the walkthrough on GitHub](https://github.com/Rajesh-Baeyal/omniprobe/blob/main/demo/omniprobe-demo.mp4)
+- [Open the demo notes](demo/README.md)
+
+The MP4 is stored in the repository so the GitHub documentation link remains stable. It is a deterministic visual walkthrough: it does not claim to be a live hardware recording, and it includes no credentials, hardware payloads, or machine-specific paths.
 
 ## Diagnostic modules
 
